@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/styles/style.css">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
-    
+    <p id="currentDate"></p> 
+    <img src="" id="loading" alt="">
+   <form id="todo_list_form">
+<input type="text" name="name" id="name" placeholder="name" >
+<input type="text" name="email" id="email" placeholder="email" >
+<input type="text" name="phone" id="phone" placeholder="phone" >
+<input type="text" name="address" id="address" placeholder="address" >
+<input type="text" name="city" id="city" placeholder="city" >
+<select id="status" required>
+    <option value="">choose</option>
+    <option value="active">active</option>
+    <option value="inactive">inactive</option>
+</select>
+<input type="password" name="password" id="password" placeholder="password" 
+pattern="(?=.*\W).{8,}" 
+         title="Password must be at least 8 characters long and contain at least one symbol."
+         required>
+         <button type="submit" class="button">Submit</button>
+   </form>
+<ul id="todo_list"></ul>
+
 <script src="script.js"></script>
     <link rel="stylesheet" href="./script.js">
 </body>

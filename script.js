@@ -1,3 +1,85 @@
+let now = new Date();
+console.log(now);
+document.getElementById('currentDate').textContent = now;
+
+function ShowToast() {  
+  Swal.fire({
+    title: "Do you want to save the form?",
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: "Save",
+    denyButtonText: `Don't save`
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire("Saved!", "", "success");
+      
+      console.log(todoListArr); 
+    } else if (result.isDenied) {
+      Swal.fire("Form are not saved", "", "info");
+    }
+  });
+}
+
+const FORM = document.querySelector("#todo_list_form");
+const UserName = document.querySelector("#name");
+const EMAIL = document.querySelector("#email");
+const PhoneNumber = document.querySelector("#phone");
+const ADDRESS = document.querySelector("#address");
+const CITY = document.querySelector("#city");
+const STATUS = document.querySelector("#status");
+const PASSWORD = document.querySelector("#password");
+
+function ChekStatus(status) {
+  switch (status) {
+    case active:
+      return "active";
+      case inactive:
+        return "inactive" ;
+  }
+}
+
+
+function generateUUID() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0,
+          v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+  });
+}
+var todoListArr = [];
+FORM.addEventListener("submit", (Event) => {
+  Event.preventDefault();
+
+  
+  let newTodoData = {
+    id: generateUUID(),
+    name: UserName.value,
+    email: EMAIL.value,
+    phone: PhoneNumber.value,
+    address: ADDRESS.value,
+    city: CITY.value,
+    status: STATUS.value,
+    password: PASSWORD.value,
+  };
+
+  
+//   todoListArr.push(newTodoData);
+// let li = document.createElement ("li");
+// todoListArr.map((el)) => {
+//   li.textcontent += el.name;
+
+  
+  ShowToast();  
+});
+
+
+
+
+
+
+
+
+
 // function isPalindrome(x) {
     
     
@@ -128,76 +210,81 @@
 
 // thirdtask
 
-var createCounter = function(init) {
-    let count = init; 
-    return {
-      increase: function() {
-        count++;
-        return count;
-      },
-      decrease: function() {
-        count--;
-        return count;
-      },
-      reset: function() {
-        count = 0;
-        return count;
-      },
-      getCount: function() {
-        return count;
-      }
-    };
-  };
+// var createCounter = function(init) {
+//     let count = init; 
+//     return {
+//       increase: function() {
+//         count++;
+//         return count;
+//       },
+//       decrease: function() {
+//         count--;
+//         return count;
+//       },
+//       reset: function() {
+//         count = 0;
+//         return count;
+//       },
+//       getCount: function() {
+//         return count;
+//       }
+//     };
+//   };
   
-  const counter = createCounter(5);
-console.log(counter.increase());
+//   const counter = createCounter(5);
 // console.log(counter.increase());
-console.log(counter.decrease());
-console.log(counter.decrease());
+// // console.log(counter.increase());
+// console.log(counter.decrease());
+// console.log(counter.decrease());
 
 
-var createCounter2 = function(init) {
-    let count = init; 
-    return {
-      increase: function() {
-        count++;
-        return count;
-      },
-      decrease: function() {
-        count--;
-        return count;
-      },
-      reset: function() {
-        count = 0;
-        return count;
-      },
-      getCount: function() {
-        return count;
-      }
-    };
-  };
+// var createCounter2 = function(init) {
+//     let count = init; 
+//     return {
+//       increase: function() {
+//         count++;
+//         return count;
+//       },
+//       decrease: function() {
+//         count--;
+//         return count;
+//       },
+//       reset: function() {
+//         count = 0;
+//         return count;
+//       },
+//       getCount: function() {
+//         return count;
+//       }
+//     };
+//   };
   
-  const counter2 = createCounter2(0);
-  console.log(counter2.increase());
-  console.log(counter2.increase());
-  console.log(counter2.decrease());
-  console.log(counter2.reset());
-  console.log(counter2.reset());
+//   const counter2 = createCounter2(0);
+//   console.log(counter2.increase());
+//   console.log(counter2.increase());
+//   console.log(counter2.decrease());
+//   console.log(counter2.reset());
+//   console.log(counter2.reset());
   
 
-  var createCounter3 = function(init) {
-    let count = init; 
-    return {
-      increase: function() {
-        ++count;
-        return count;
-      }
-    }
-};
+//   var createCounter3 = function(init) {
+//     let count = init; 
+//     return {
+//       increase: function() {
+//         ++count;
+//         return count;
+//       }
+//     }
+// };
 
-const Counter3 = createCounter3(10);
-  console.log(Counter3.increase());
-  console.log(Counter3.increase());
-  console.log(Counter3.increase());  
+// const Counter3 = createCounter3(10);
+//   console.log(Counter3.increase());
+//   console.log(Counter3.increase());
+//   console.log(Counter3.increase());  
 
 //   ancaq bu sehvdir sabah bax videodan, her defe ozu artmalidir
+// let message;
+// message = 'Hello';
+
+// alert(message); 
+
